@@ -121,36 +121,36 @@ export default function RubiksTopBanner({ brand = "Rubik's Solver" }) {
 
               {/* --- UPDATED: clearer, meaningful subtext --- */}
               <p className="rubiks-sub text-sm text-gray-700 sm:text-slate-700 dark:text-slate-300 mt-1">
-                Scramble generator • Step-by-step solver • Algorithm visualizer
+                 • Step-by-step solver • Algorithm visualizer
               </p>
             </div>
           </div>
 
           {/* badges integrated directly into banner (no separate card) */}
           <div className="flex flex-wrap items-center gap-3 mt-4">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/40 backdrop-blur-sm border border-white/50 text-xs text-gray-800">
-              Scramble Generator
-            </span>
+        
 
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/30 backdrop-blur-sm border border-white/40 text-xs text-gray-800">
-              Interactive Tutorials
-            </span>
+<span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/30 backdrop-blur-sm border border-white/40 text-xs text-gray-800">
+  🎓 Step-by-Step Tutorials – learn solving methods interactively
+</span>
 
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/30 backdrop-blur-sm border border-white/40 text-xs text-gray-800">
-              Algorithm Visualizer
-            </span>
+<span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/30 backdrop-blur-sm border border-white/40 text-xs text-gray-800">
+  👁️ Algorithm Visualizer – see each move animated in real time
+</span>
 
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/30 backdrop-blur-sm border border-white/40 text-xs text-gray-800">
-              Practice Mode
-            </span>
+<span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/30 backdrop-blur-sm border border-white/40 text-xs text-gray-800">
+  ⚡ Dual Solver Modes – fast JS solver + advanced C++ solver
+</span>
+
 
             {/* slim version label integrated into the line */}
             <span className="ml-4 text-xs text-gray-600 sm:text-slate-700 dark:text-slate-300">v1.0</span>
           </div>
 
-          <p className="mt-3 text-xs text-gray-600 sm:text-slate-700 dark:text-slate-300 max-w-2xl">
-            This header is decorative only — controls, tools and steps are available in the section below to help you practice and learn algorithms.
-          </p>
+         <p className="mt-3 text-xs text-gray-600 sm:text-slate-700 dark:text-slate-300 max-w-2xl">
+  🔥 Every solve begins with a scramble! Use the tools below to sharpen your skills, learn step-by-step algorithms, and become faster with every move 🚀🧠.
+</p>
+
 
           {/* decorative progress-like strip as integrated accent */}
           <div className="mt-4 w-full max-w-md h-3 rounded-full relative overflow-hidden" aria-hidden>

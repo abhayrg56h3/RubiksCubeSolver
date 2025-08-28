@@ -66,7 +66,8 @@ router.post('/solution2', (req, res) => {
     }
 
     const binName = process.platform === 'win32' ? 'abhayji.exe' : 'abhayji';
-    const binPath = path.join(__dirname, '..', binName);
+    const binPath = path.join(__dirname, binName);
+
 
     console.log("Looking for C++ binary at:", binPath);
     if (!fs.existsSync(binPath)) {

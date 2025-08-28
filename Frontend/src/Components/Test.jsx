@@ -9,6 +9,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import RubiksTopBanner from "./RubiksBanner";
 import Context, { CubeContext } from "./Context";
+import Cube from "cubejs";
 import axios from "axios";
 
 import { Edges } from "@react-three/drei";
@@ -760,7 +761,21 @@ function CubeScanner() {
       const regex = /([UDLRFB][2']?)/g;
       return moveString.match(regex) || [];
     }
-    
+       
+
+ function isValidScramble(scramble) {
+  try {
+    // Try to build cube from scramble string
+    const cube = Cube.fromString(scramble);
+
+    // If it didn't throw error → it's valid
+    return true;
+  } catch (e) {
+    // Invalid scramble (wrong chars, impossible cube state, etc.)
+    return false;
+  }
+}
+
     
     
     
@@ -799,7 +814,10 @@ function CubeScanner() {
         });
     
      
-     
+         if (!isValidScramble(string)) {
+  alert("❌ Invalid scramble! Must be a valid 54-character cube state.");
+}
+
         try{    
           if(num==1){
               const response=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/solution1`,{
