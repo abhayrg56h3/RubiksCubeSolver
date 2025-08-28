@@ -802,7 +802,7 @@ function CubeScanner() {
      
         try{    
           if(num==1){
-              const response=await axios.post(`${import.meta.env.BACKEND_URL}/api/solution1`,{
+              const response=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/solution1`,{
                 scramble: string
               });
               
@@ -826,7 +826,7 @@ function CubeScanner() {
         window.open("/solution", "_blank", "noopener,noreferrer");
           }
           else{
-              const response=await axios.post(`${import.meta.env.BACKEND_URL}/api/solution2`,{
+              const response=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/solution2`,{
                 scramble: string
               });
                 setSolutionMoves(parseMoves(response.data.solution));
