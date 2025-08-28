@@ -7,7 +7,6 @@ import React, { useContext,useCallback, useEffect, useRef, useState } from "reac
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { set } from "mongoose";
 import RubiksTopBanner from "./RubiksBanner";
 import Context, { CubeContext } from "./Context";
 import axios from "axios";
