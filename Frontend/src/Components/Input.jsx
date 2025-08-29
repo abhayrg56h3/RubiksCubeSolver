@@ -844,6 +844,7 @@ function CubeScanner() {
      
          if (!isValidScramble(string)) {
   alert("❌ Invalid scramble! Must be a valid 54-character cube state.");
+  return ;
 }
 
         try{    
