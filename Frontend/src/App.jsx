@@ -6,7 +6,7 @@ import { OrbitControls } from "@react-three/drei";
 import RubiksTopBanner from "./Components/RubiksBanner.jsx";
 import Solution from "./Components/solution.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
-import CubeScanner from "./Components/Test.jsx";
+import CubeScanner from "./Components/Input.jsx";
 function Cubie({ pos, size = 0.9 }) {
   const mesh = useRef();
   const [x, y, z] = pos;

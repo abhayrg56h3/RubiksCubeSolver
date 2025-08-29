@@ -457,7 +457,8 @@ function handleAnimation() {
           <div className="!h-[72vh] sm:!h-[76vh] !relative">
             
 <Canvas
-  camera={{ position: [2, 2, 5], fov: 50 }}
+  camera={{ position: [4, 4, 12], fov: 50 }}
+
   className="!w-full !h-full !bg-transparent"
 >
   <ambientLight intensity={1.1} />
@@ -475,14 +476,7 @@ function handleAnimation() {
     face5Color={faces.face5}
   />
 
-  {/* ✅ Orbit controls */}
-  <OrbitControls
-    enableZoom={true}
-    enablePan={true}
-    enableRotate={true}
-    minDistance={3}
-    maxDistance={10}
-  />
+  
 </Canvas>
           </div>
         </div>

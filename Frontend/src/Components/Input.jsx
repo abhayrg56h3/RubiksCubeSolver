@@ -1,8 +1,5 @@
 
 
-
-// src/CubeScanner.jsx (REVISED with Pre-Trained Color Model)
-
 import React, { useContext,useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -14,6 +11,7 @@ import axios from "axios";
 
 import { Edges } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
+import { validateRubiksCubeState } from "../utils/cubeSolvability";
 
 // Put this near top of file (once)
 const DEFAULT_FACE = [
@@ -764,10 +762,40 @@ function CubeScanner() {
        
 
  function isValidScramble(scramble) {
+  if(scramble.includes("undefined")  || scramble.includes('N') || scramble.length!=54){
+      return false;
+    }
+
+    let  str="";
+    for(var i=4;i<=53;i+=9){
+      str+=scramble[i];
+    }
+
+    if(str!="URFDLB") return false;
+    const countMap = {};
+    for (let c of scramble) {
+      countMap[c] = (countMap[c] || 0) + 1;
+    }
+    for (let key of Object.keys(countMap)) {
+      if (countMap[key] !== 9) return false;
+    }
+  // Basic validation: must be exactly 54 characters of valid face letters
+  if (!/^[URFDLB]{54}$/.test(scramble)) {
+    return false;
+  }
+
+  if(!validateRubiksCubeState(scramble)) {
+    
+    return false;
+  }
+
+  // Advanced validation using cube library
+
   try {
     // Try to build cube from scramble string
+    
     const cube = Cube.fromString(scramble);
-
+      console.log(cube);
     // If it didn't throw error → it's valid
     return true;
   } catch (e) {
@@ -1032,7 +1060,7 @@ const handleFaceScanned = (colors) => {
                     <div className="!flex !flex-col sm:!flex-row !gap-3">
                         <button onClick={() => handleSolve(1)} className="!w-full !px-4 !py-3 !rounded-lg !bg-indigo-600 !text-white !font-semibold hover:!bg-indigo-700 !transition !shadow-md">Kociemba Solve</button>
                         <button onClick={() => handleSolve(2)} className="!w-full !px-4 !py-3 !rounded-lg !bg-sky-600 !text-white !font-semibold hover:!bg-sky-700 !transition !shadow-md">Layer by Layer</button>
-                        <button onClick={() => handlePaintSticker(null)} className="!w-full sm:!w-auto !px-4 !py-3 !rounded-lg !bg-red-500 !text-white !font-semibold hover:!bg-red-600 !transition !shadow-md">Reset</button>
+                        {/* <button onClick={() => handlePaintSticker(null)} className="!w-full sm:!w-auto !px-4 !py-3 !rounded-lg !bg-red-500 !text-white !font-semibold hover:!bg-red-600 !transition !shadow-md">Reset</button> */}
                     </div>
                 </div>
             </section>
